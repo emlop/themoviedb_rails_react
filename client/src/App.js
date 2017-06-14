@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CommentList from './components/CommentList';
+import AddForm from './components/AddForm';
 // import Themoviedb from './component/Themoviedb'
 import './App.css';
 
@@ -125,7 +127,6 @@ class App extends Component {
   }
 
   /* ======== FORM CONTROLS */
-
   handleContentInputChange(event) {
     this.setState({ contentValue: event.target.value });
   }
@@ -156,12 +157,11 @@ class App extends Component {
     return <p>Loading</p>;
   }
 
-
   render() {
     console.log(this.state);
     return (
       <div className="App">
-        <Header />
+        {/*<Header />*/}
         <main>
           <AddForm
             addComment={this.addComment}
@@ -174,7 +174,7 @@ class App extends Component {
           />
           {this.renderCommentList()}
         </main>
-        <Footer />
+        {/*<Footer />*/}
       </div>
     );
   }
