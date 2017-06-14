@@ -14,7 +14,7 @@ class AddForm extends Component {
             placeholder="Author"
             value={this.props.authorValue}
             onChange={this.props.handleAuthorInputChange}
-          />
+          /> 
           <input
             type="text"
             name="content"
@@ -30,7 +30,8 @@ class AddForm extends Component {
       <span
         role="button"
         tabIndex="2"
-        className="showform"
+        // className="showform"
+         className="addform"
         onClick={() => this.props.showAddForm()}
       >Add a comment</span>
     );
