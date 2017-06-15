@@ -5,7 +5,7 @@ class AddForm extends Component {
     if (this.props.currentlyAdding) {
       return (
         <form 
-          className='addform'
+          className='none'
           onSubmit={e => this.props.addComment(e)}
         >
           <input
@@ -30,8 +30,7 @@ class AddForm extends Component {
       <span
         role="button"
         tabIndex="2"
-        // className="showform"
-         className="addform"
+         className="showform"
         onClick={() => this.props.showAddForm()}
       >Add a comment</span>
     );

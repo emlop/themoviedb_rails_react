@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CommentList from './components/CommentList';
 import AddForm from './components/AddForm';
-// import Themoviedb from './component/Themoviedb'
+import Header from './components/Header'
 import './App.css';
 
 class App extends Component {
@@ -139,6 +139,16 @@ class App extends Component {
   renderCommentList() {
     if (this.state.apiDataLoaded) {
       return (
+        <div>
+        <AddForm
+            addComment={this.addComment}
+            currentlyAdding={this.state.currentlyAdding}
+            showAddForm={this.showAddForm}
+            handleAuthorInputChange={this.handleAuthorInputChange}
+            handleContentInputChange={this.handleContentInputChange}
+            authorValue={this.state.authorValue}
+            contentValue={this.state.contentValue}
+          />
         <CommentList
           apiData={this.state.apiData}
           setFeature={this.setFeature}
@@ -151,7 +161,7 @@ class App extends Component {
           handleContentInputChange={this.handleContentInputChange}
           authorValue={this.state.authorValue}
           contentValue={this.state.contentValue}
-        />
+        /></div>
       );
     }
     return <p>Loading</p>;
@@ -161,17 +171,9 @@ class App extends Component {
     console.log(this.state);
     return (
       <div className="App">
-        {/*<Header />*/}
+        <Header />
         <main>
-          <AddForm
-            addComment={this.addComment}
-            currentlyAdding={this.state.currentlyAdding}
-            showAddForm={this.showAddForm}
-            handleAuthorInputChange={this.handleAuthorInputChange}
-            handleContentInputChange={this.handleContentInputChange}
-            authorValue={this.state.authorValue}
-            contentValue={this.state.contentValue}
-          />
+          
           {this.renderCommentList()}
         </main>
         {/*<Footer />*/}
