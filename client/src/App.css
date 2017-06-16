@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  background-color: black;
+  /*background-color: black;*/
 }
 header {
   min-height: 50px;
@@ -12,7 +12,7 @@ header {
   background-color: #F9F7E8;
 }
 .App {
-  background-color: red;
+  /*background-color: red;*/
 }
 
 #twitter {

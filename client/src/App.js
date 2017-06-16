@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Movie from './components/Movie';
 import CommentList from './components/CommentList';
 import AddForm from './components/AddForm';
 import Header from './components/Header';
@@ -8,7 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      apiData: null,
+      movieData: null,
+      commentData: null,
       apiDataLoaded: false,
       featuredCommentId: null,
       currentlyEditing: null,
@@ -33,14 +35,23 @@ class App extends Component {
 
   /* lifecycle methods */
   componentDidMount() {
-    fetch('/comments')
-      .then(res => res.json()).then((jsonRes) => {
+    Promise.all([
+      fetch('/comments'),
+      fetch('https://api.themoviedb.org/3/movie/2123?&api_key=e61e251b82e0c0d13065d29fb5cc9772')
+    ]).then(res => {
+        return Promise.all(res.map((response) => {
+        return response.json()
+    }))
+    }).then((jsonRes) => {
+      console.log(jsonRes);
         this.setState({
-          apiData: jsonRes.comments_data,
+          commentData: jsonRes[0].comments_data,
           apiDataLoaded: true,
+          movieData: jsonRes[1]
         });
       }).catch(err => console.log(err));
   }
+
 
   /* features comment */
   setFeature(id) {
@@ -140,17 +151,20 @@ class App extends Component {
     if (this.state.apiDataLoaded) {
       return (
         <div>
+        <Movie 
+          movieData={this.state.movieData}
+        />
         <AddForm
-            addComment={this.addComment}
-            currentlyAdding={this.state.currentlyAdding}
-            showAddForm={this.showAddForm}
-            handleAuthorInputChange={this.handleAuthorInputChange}
-            handleContentInputChange={this.handleContentInputChange}
-            authorValue={this.state.authorValue}
-            contentValue={this.state.contentValue}
+          addComment={this.addComment}
+          currentlyAdding={this.state.currentlyAdding}
+          showAddForm={this.showAddForm}
+          handleAuthorInputChange={this.handleAuthorInputChange}
+          handleContentInputChange={this.handleContentInputChange}
+          authorValue={this.state.authorValue}
+          contentValue={this.state.contentValue}
           />
         <CommentList
-          apiData={this.state.apiData}
+          apiData={this.state.commentData}
           setFeature={this.setFeature}
           featuredCommentId={this.state.featuredCommentId}
           deleteComment={this.deleteComment}
