@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CommentList from './components/CommentList';
 import AddForm from './components/AddForm';
-import Header from './components/Header'
+import Header from './components/Header';
 import './App.css';
 
 class App extends Component {
@@ -173,10 +173,9 @@ class App extends Component {
       <div className="App">
         <Header />
         <main>
-          
+          <h1>body</h1>
           {this.renderCommentList()}
         </main>
-        {/*<Footer />*/}
       </div>
     );
   }

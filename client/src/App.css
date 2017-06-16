@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+  background-color: black;
+}
 header {
   min-height: 50px;
   flex: 0 200px;
@@ -23,6 +27,13 @@ header {
 
 .none {
   background-color: yellow;
+  text-align: center;
+  position: fixed;
+  right: 1%;
+  bottom: 74.5%;
+  border: 1px solid black;
+  height: 30px;
+  width: 350px;
 }
 
 .showform {
