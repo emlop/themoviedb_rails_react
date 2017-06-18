@@ -1,6 +1,5 @@
 html {
   height: 100%;
-  /*background-color: black;*/
 }
 header {
   min-height: 50px;
@@ -11,14 +10,12 @@ header {
   justify-content: center;
   background-color: #F9F7E8;
 }
-.App {
-  /*background-color: red;*/
-}
 
 #twitter {
-  position: fixed;
-  right: 1%;
-  bottom: 11%;
+  position: absolute;
+  left: 50%;
+  top: 645%;
+  padding: 0px;
   border: 1px solid black;
   height: 250px;
   width: 350px;
@@ -26,52 +23,80 @@ header {
 }
 
 .none {
-  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  background-color: #F9F7E8;
   text-align: center;
-  position: fixed;
-  right: 1%;
-  bottom: 74.5%;
+  left: 24.5%;
+  position: relative;
   border: 1px solid black;
   height: 30px;
   width: 350px;
 }
 
 .showform {
-  background-color: white;
+  display: flex;
+  justify-content: center;
+  background-color: #F9F7E8;
   text-align: center;
-  position: fixed;
-  right: 1%;
-  bottom: 74.5%;
+  left: 24.5%;
+  position: relative;
   border: 1px solid black;
   height: 30px;
   width: 350px;
 }
 
+.commentbox {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  right: 50%;
+  
+}
 .commentlist {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   text-align: center;
-  position: fixed;
+  position: relative;
   right: 1%;
   bottom: 43%;
   border: 1px solid black;
   height: 250px;
   width: 350px;
   overflow: scroll;
-  background-color: blue;
+  background-color: #F9F7E8;
+}
+
+.movieinfo {
+  text-align: center;
+  display: inline-block;
+  height: 400px;
+  width: 400px;
+  font-size: 20px;
+ 
+}
+
+.movieinfo img {
+  width: 200px;
+  height: 300px;
+}
+
+.overview {
+  text-align: center;
 }
 
 footer {
-  position: fixed;
+  position: relative;
   background-color: blue;
   left: 0px;
   bottom: 0px;
-  padding: 30px 0;
+  padding: 15px;
   font-size: 0.9em;
   text-align: center;
   height: 2%;
   width: 100%;
+  float: left;
 }
 
 a {

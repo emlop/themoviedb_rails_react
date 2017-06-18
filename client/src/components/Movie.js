@@ -4,22 +4,15 @@ class Movie extends Component {
   render(){
     return (
       <div className="movieinfo">
-        <h1>
-          {this.props.movieData.original_title}
-        </h1>
-        <h2>
-          {this.props.movieData.tagline}
-        </h2>
-        <p>
-          {this.props.movieData.overview}
-        </p>
+        <h3>{this.props.movieData.original_title}</h3>
         <img src={"https://image.tmdb.org/t/p/w500" + this.props.movieData.poster_path} alt="poster"/>
-        {/*<img src={"https://image.tmdb.org/t/p/w500" + this.props.movieData.backdrop_path} alt="irene" />*/}
+        <p>{this.props.movieData.overview}</p>
+        <h5>Vote: <br />{this.props.movieData.vote_average} | Released on: <br />{this.props.movieData.release_date}</h5>
+        
+        
       </div>
     )
   }
 }
 
 export default Movie;
-
-// {this.props.movieData}

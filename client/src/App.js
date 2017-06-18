@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Movie from './components/Movie';
+// import Currentmovie from './components/Currentmovie';
 import CommentList from './components/CommentList';
 import AddForm from './components/AddForm';
 import Header from './components/Header';
@@ -37,7 +38,7 @@ class App extends Component {
   componentDidMount() {
     Promise.all([
       fetch('/comments'),
-      fetch('https://api.themoviedb.org/3/movie/2123?&api_key=e61e251b82e0c0d13065d29fb5cc9772')
+      fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=e61e251b82e0c0d13065d29fb5cc9772&language=en-US&page=1')
     ]).then(res => {
         return Promise.all(res.map((response) => {
         return response.json()
@@ -47,11 +48,11 @@ class App extends Component {
         this.setState({
           commentData: jsonRes[0].comments_data,
           apiDataLoaded: true,
-          movieData: jsonRes[1]
+          movieData: jsonRes[1].results
         });
+        console.log(this.setState.movieData)
       }).catch(err => console.log(err));
   }
-
 
   /* features comment */
   setFeature(id) {
@@ -151,9 +152,29 @@ class App extends Component {
     if (this.state.apiDataLoaded) {
       return (
         <div>
-        <Movie 
-          movieData={this.state.movieData}
-        />
+        <div className='moviething'>
+        <Movie movieData={this.state.movieData[0]} />
+        <Movie movieData={this.state.movieData[1]} />
+        <Movie movieData={this.state.movieData[2]} />
+        <Movie movieData={this.state.movieData[3]} />
+        <Movie movieData={this.state.movieData[4]} />
+        <Movie movieData={this.state.movieData[5]} />
+        <Movie movieData={this.state.movieData[6]} />
+        <Movie movieData={this.state.movieData[7]} />
+        <Movie movieData={this.state.movieData[8]} />
+        <Movie movieData={this.state.movieData[9]} />
+        <Movie movieData={this.state.movieData[10]} />
+        <Movie movieData={this.state.movieData[11]} />
+        <Movie movieData={this.state.movieData[12]} />
+        <Movie movieData={this.state.movieData[13]} />
+        <Movie movieData={this.state.movieData[14]} />
+        <Movie movieData={this.state.movieData[15]} />
+        <Movie movieData={this.state.movieData[16]} />
+        <Movie movieData={this.state.movieData[17]} />
+        <Movie movieData={this.state.movieData[18]} />
+        <Movie movieData={this.state.movieData[19]} />
+        </div>
+       
         <AddForm
           addComment={this.addComment}
           currentlyAdding={this.state.currentlyAdding}
@@ -162,7 +183,8 @@ class App extends Component {
           handleContentInputChange={this.handleContentInputChange}
           authorValue={this.state.authorValue}
           contentValue={this.state.contentValue}
-          />
+        />
+        <div className="commentbox">
         <CommentList
           apiData={this.state.commentData}
           setFeature={this.setFeature}
@@ -175,7 +197,10 @@ class App extends Component {
           handleContentInputChange={this.handleContentInputChange}
           authorValue={this.state.authorValue}
           contentValue={this.state.contentValue}
+
+                  
         /></div>
+        </div>
       );
     }
     return <p>Loading</p>;
@@ -187,8 +212,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <main>
-          <h1>body</h1>
-          {this.renderCommentList()}
+          {this.renderCommentList()} 
         </main>
       </div>
     );
