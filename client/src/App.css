@@ -86,6 +86,11 @@ header {
   text-align: center;
 }
 
+#map {
+  height: 250px;
+  width: 350px;
+}
+
 footer {
   position: relative;
   background-color: blue;
