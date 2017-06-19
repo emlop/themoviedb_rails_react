@@ -1,24 +1,16 @@
-# README
+# WDI 4th unit Project - Pelicul-US
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project was created to showcase the 20 most current movies.
 
-Things you may want to cover:
+The project used the following technologies:
 
-* Ruby version
+* Ruby on Rails for backend.
 
-* System dependencies
+* React.js for frontend fetching and UI.
 
-* Configuration
+* Procfile to run both front and back end servers simultaneously using foreman start     -p 3000 in terminal.
 
-* Database creation
+* https://developers.themoviedb.org/3/movies/get-now-playing is the api used in this     project.
 
-* Database initialization
+* Full CRUD functionality within the COMMENTS section.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
