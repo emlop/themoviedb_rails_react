@@ -4,7 +4,7 @@ import Comment from './Comment';
 class CommentList extends Component {
   render() {
     return (
-      <div className="commentlist">
+      <div className="commentbox">
         {this.props.apiData.map((comment) => {
           if (this.props.currentlyEditing === comment.id) {
             return (

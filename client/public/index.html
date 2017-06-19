@@ -8,30 +8,83 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     
-    <title>Pelicul US movie search done right!</title>
+    <title>Current movies playing in theaters</title>
   </head>
   <body>
     <div class="container">
       <div id="app"></div>
+      
+        <!--<h1>Movie theater near GA</h1>-->
         <div id="map"></div>
+
         <script>
-          function initMap() {
-            var options = {
-              zoom: 10,
-              center: {lat: 40.7398, lng: -73.9902},
-            }
-            var map = new google.maps.Map(document.getElementById('map'), options);
-            addMarker({lat:40.7386, lng: -73.9897});
-            addMarker({lat:40.7341, lng: -73.9906});
-            function addMarker(coords) {
-              var marker = new google.maps.Marker({
-                postion: coords,
-                map:map,
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-              })
-            }
-          }
-        </script>
+        function initMap(){
+       // Map options
+        var options = {
+        zoom: 13,
+        center:{lat:40.7398,lng:-73.9902}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+        google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+      // Array of markers
+        var markers = [
+        {
+          coords:{lat:40.738555,lng:-73.989669},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>AMC Loews 19th St. East 6</h1>'
+        },
+        {
+          coords:{lat:40.734089,lng:-73.990560},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>Regal Union Square Stadium 14</h1>'
+        },
+        {
+          coords:{lat:40.742853,lng:-73.976686},
+          content:'<h1>AMC Loews Kips Bay 15</h1>'
+        }
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
         <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVn4_9OMTcsq3LFIkft-S14HQPBd1sjrY&callback=initMap">
         </script>

@@ -13,9 +13,18 @@ header {
 
 #twitter {
   position: absolute;
-  left: 50%;
-  top: 645%;
-  padding: 0px;
+  top: 690%;
+  left: 66%;
+  border: 1px solid black;
+  height: 250px;
+  width: 350px;
+  overflow: scroll;
+}
+
+#map {
+  position: absolute;
+  top: 690%;
+  left: 3%;
   border: 1px solid black;
   height: 250px;
   width: 350px;
@@ -27,7 +36,7 @@ header {
   justify-content: center;
   background-color: #F9F7E8;
   text-align: center;
-  left: 24.5%;
+  left: 33%;
   position: relative;
   border: 1px solid black;
   height: 30px;
@@ -39,7 +48,7 @@ header {
   justify-content: center;
   background-color: #F9F7E8;
   text-align: center;
-  left: 24.5%;
+  left: 33%;
   position: relative;
   border: 1px solid black;
   height: 30px;
@@ -48,19 +57,11 @@ header {
 
 .commentbox {
   display: flex;
-  justify-content: flex-end;
-  position: relative;
-  right: 50%;
-  
-}
-.commentlist {
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   text-align: center;
   position: relative;
-  right: 1%;
-  bottom: 43%;
+  left: 33%;
   border: 1px solid black;
   height: 250px;
   width: 350px;
@@ -74,21 +75,16 @@ header {
   height: 400px;
   width: 400px;
   font-size: 20px;
- 
 }
 
 .movieinfo img {
+  display: inline-block;
   width: 200px;
   height: 300px;
 }
 
 .overview {
   text-align: center;
-}
-
-#map {
-  height: 250px;
-  width: 350px;
 }
 
 footer {

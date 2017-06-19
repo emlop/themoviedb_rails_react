@@ -151,8 +151,8 @@ class App extends Component {
   renderCommentList() {
     if (this.state.apiDataLoaded) {
       return (
-        <div>
-        <div className='moviething'>
+        <div className="important">
+        {/*<div className='moviething'>*/}
         <Movie movieData={this.state.movieData[0]} />
         <Movie movieData={this.state.movieData[1]} />
         <Movie movieData={this.state.movieData[2]} />
@@ -173,7 +173,7 @@ class App extends Component {
         <Movie movieData={this.state.movieData[17]} />
         <Movie movieData={this.state.movieData[18]} />
         <Movie movieData={this.state.movieData[19]} />
-        </div>
+        {/*</div>*/}
        
         <AddForm
           addComment={this.addComment}
@@ -184,7 +184,7 @@ class App extends Component {
           authorValue={this.state.authorValue}
           contentValue={this.state.contentValue}
         />
-        <div className="commentbox">
+      
         <CommentList
           apiData={this.state.commentData}
           setFeature={this.setFeature}
@@ -200,7 +200,6 @@ class App extends Component {
 
                   
         /></div>
-        </div>
       );
     }
     return <p>Loading</p>;

@@ -6,8 +6,6 @@ class Comment extends Component {
       <div className="comment-container">
       <div className={
         (this.props.featuredCommentId === this.props.comment.id)
-          ? 'my-comment featured'
-          : 'my-comment'
         }>
        <div className="featureme">
           <i
@@ -20,10 +18,10 @@ class Comment extends Component {
         <div className="commentcontent">
           <h3>{this.props.comment.content}</h3>
  
-          <div className="meta">
+          
             <span className="addform">{this.props.comment.author}</span>
             <span className="addform">{this.props.comment.content}</span>
-          </div>
+          
           <div className="edit-delete">
             <span
               role="button"
