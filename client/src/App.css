@@ -1,6 +1,6 @@
-html {
+/*html {
   height: 100%;
-}
+}*/
 header {
   min-height: 50px;
   flex: 0 200px;
@@ -9,11 +9,13 @@ header {
   align-items: center;
   justify-content: center;
   background-color: #F9F7E8;
+  font-family: 'Oswald', sans-serif;
+  width: 100%;
 }
 
 #twitter {
   position: absolute;
-  top: 690%;
+  top: 740%;
   left: 66%;
   border: 1px solid black;
   height: 250px;
@@ -23,7 +25,7 @@ header {
 
 #map {
   position: absolute;
-  top: 690%;
+  top: 740%;
   left: 3%;
   border: 1px solid black;
   height: 250px;
@@ -53,6 +55,7 @@ header {
   border: 1px solid black;
   height: 30px;
   width: 350px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .commentbox {
@@ -67,6 +70,7 @@ header {
   width: 350px;
   overflow: scroll;
   background-color: #F9F7E8;
+  font-family: 'Oswald', sans-serif;
 }
 
 .movieinfo {
@@ -75,6 +79,7 @@ header {
   height: 400px;
   width: 400px;
   font-size: 20px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .movieinfo img {
@@ -98,10 +103,12 @@ footer {
   height: 2%;
   width: 100%;
   float: left;
+  font-family: 'Oswald', sans-serif;
 }
 
 a {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
 }

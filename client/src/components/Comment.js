@@ -28,7 +28,7 @@ class Comment extends Component {
               tabIndex={(parseInt(this.props.comment.id, 10) * 3) + 1}
               className="delete"
               onClick={() => this.props.deleteComment(this.props.comment.id)}
-            >Delete</span>
+            >Delete</span> <br />
             <span
               role="button"
               tabIndex={(parseInt(this.props.comment.id, 10) * 3) + 2}
