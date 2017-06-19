@@ -19,8 +19,7 @@ class Comment extends Component {
           <h3>{this.props.comment.content}</h3>
  
           
-            <span className="addform">{this.props.comment.author}</span>
-            <span className="addform">{this.props.comment.content}</span>
+            <span className="addform">{this.props.comment.author}</span> 
           
           <div className="edit-delete">
             <span

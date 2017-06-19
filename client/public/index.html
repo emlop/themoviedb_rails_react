@@ -13,82 +13,83 @@
   </head>
   <body>
     <div class="container">
+      
       <div id="app"></div>
       
         <!--<h1>Movie theater near GA</h1>-->
         <div id="map"></div>
 
-        <script>
-        function initMap(){
-       // Map options
-        var options = {
-        zoom: 13,
-        center:{lat:40.7398,lng:-73.9902}
-      }
+          <script>
+            function initMap(){
+            // Map options
+            var options = {
+              zoom: 13,
+              center:{lat:40.7398,lng:-73.9902}
+            }
 
-      // New map
-      var map = new google.maps.Map(document.getElementById('map'), options);
+              // New map
+              var map = new google.maps.Map(document.getElementById('map'), options);
 
-      // Listen for click on map
-        google.maps.event.addListener(map, 'click', function(event){
-        // Add marker
-        addMarker({coords:event.latLng});
-      });
+              // Listen for click on map
+              google.maps.event.addListener(map, 'click', function(event){
+              // Add marker
+              addMarker({coords:event.latLng});
+              });
 
-      // Array of markers
-        var markers = [
-        {
-          coords:{lat:40.738555,lng:-73.989669},
-          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-          content:'<h1>AMC Loews 19th St. East 6</h1>'
-        },
-        {
-          coords:{lat:40.734089,lng:-73.990560},
-          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-          content:'<h1>Regal Union Square Stadium 14</h1>'
-        },
-        {
-          coords:{lat:40.742853,lng:-73.976686},
-          content:'<h1>AMC Loews Kips Bay 15</h1>'
+              // Array of markers
+              var markers = [
+              {
+               coords:{lat:40.738555,lng:-73.989669},
+               iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+               content:'<h1>AMC Loews 19th St. East 6</h1>'
+              },
+              {
+               coords:{lat:40.734089,lng:-73.990560},
+               iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+               content:'<h1>Regal Union Square Stadium 14</h1>'
+              },
+              { 
+              coords:{lat:40.742853,lng:-73.976686},
+              content:'<h1>AMC Loews Kips Bay 15</h1>'
+              }
+              ];
+
+              // Loop through markers
+              for(var i = 0;i < markers.length;i++){
+              // Add marker
+              addMarker(markers[i]);
+              }
+
+              // Add Marker Function
+              function addMarker(props){
+              var marker = new google.maps.Marker({
+              position:props.coords,
+              map:map,
+              //icon:props.iconImage
+              });
+
+              // Check for customicon
+              if(props.iconImage){
+              // Set icon image
+              marker.setIcon(props.iconImage);
+              }
+
+               // Check content
+              if(props.content){
+              var infoWindow = new google.maps.InfoWindow({
+              content:props.content
+              });
+
+              marker.addListener('click', function(){
+              infoWindow.open(map, marker);
+            });
+          }
         }
-      ];
-
-      // Loop through markers
-      for(var i = 0;i < markers.length;i++){
-        // Add marker
-        addMarker(markers[i]);
       }
-
-      // Add Marker Function
-      function addMarker(props){
-        var marker = new google.maps.Marker({
-          position:props.coords,
-          map:map,
-          //icon:props.iconImage
-        });
-
-        // Check for customicon
-        if(props.iconImage){
-          // Set icon image
-          marker.setIcon(props.iconImage);
-        }
-
-        // Check content
-        if(props.content){
-          var infoWindow = new google.maps.InfoWindow({
-            content:props.content
-          });
-
-          marker.addListener('click', function(){
-            infoWindow.open(map, marker);
-          });
-        }
-      }
-    }
-  </script>
-        <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVn4_9OMTcsq3LFIkft-S14HQPBd1sjrY&callback=initMap">
-        </script>
+    </script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVn4_9OMTcsq3LFIkft-S14HQPBd1sjrY&callback=initMap">
+      </script>
         <div id="twitter"><a class="twitter-timeline" data-width="350" data-link-color="#2B7BB9" href="https://twitter.com/IMDb">Tweets by IMDb</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
           <footer>
             <span><a href="https://github.com/emlop/pelicul-us">Redesigned by Emel Lopez<span>

@@ -1,6 +1,7 @@
-/*html {
-  height: 100%;
-}*/
+body {
+  background-image: url('./assests/Filmicon.png'); 
+}
+
 header {
   min-height: 50px;
   flex: 0 200px;
@@ -15,7 +16,7 @@ header {
 
 #twitter {
   position: absolute;
-  top: 740%;
+  top: 667%;
   left: 66%;
   border: 1px solid black;
   height: 250px;
@@ -25,7 +26,7 @@ header {
 
 #map {
   position: absolute;
-  top: 740%;
+  top: 667%;
   left: 3%;
   border: 1px solid black;
   height: 250px;
@@ -45,10 +46,14 @@ header {
   width: 350px;
 }
 
+.important {
+  background-color: #ffe6e6;
+}
+
 .showform {
   display: flex;
   justify-content: center;
-  background-color: #F9F7E8;
+  background-color: #e55a53;
   text-align: center;
   left: 33%;
   position: relative;
@@ -56,6 +61,22 @@ header {
   height: 30px;
   width: 350px;
   font-family: 'Oswald', sans-serif;
+}
+
+.showform:hover {
+  background-color: #e55a53;
+}
+
+.addform {
+  font-size: 22px;
+}
+
+.delete, .edit {
+  cursor: pointer;
+}
+
+.delete:hover, .edit:hover {
+  background-color: #e55a53;
 }
 
 .commentbox {
@@ -94,7 +115,7 @@ header {
 
 footer {
   position: relative;
-  background-color: blue;
+  background-color: #e55a53;
   left: 0px;
   bottom: 0px;
   padding: 15px;
