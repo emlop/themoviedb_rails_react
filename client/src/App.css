@@ -14,7 +14,7 @@ header {
   width: 100%;
 }
 
-#twitter {
+/*#twitter {
   position: absolute;
   top: 667%;
   left: 66%;
@@ -32,15 +32,15 @@ header {
   height: 250px;
   width: 350px;
   overflow: scroll;
-}
+}*/
 
 .none {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   background-color: #F9F7E8;
   text-align: center;
   left: 33%;
-  position: relative;
   border: 1px solid black;
   height: 30px;
   width: 350px;
@@ -53,6 +53,7 @@ header {
 .showform {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   background-color: #e55a53;
   text-align: center;
   left: 33%;
@@ -82,7 +83,7 @@ header {
 .commentbox {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
   position: relative;
   left: 33%;
